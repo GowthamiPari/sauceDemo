@@ -1,0 +1,38 @@
+{
+  "name": "truterra-livestock-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "pretest": "npx ts-node src/helpers/report/init.ts",
+    "test-order": "cross-env FORCE_COLOR=0 cucumber-js --config=config/cucumber.js -p order @order.txt || true",
+    "test": "cross-env FORCE_COLOR=0 cucumber-js --config=config/cucumber.js || true",
+    "posttest": "npx ts-node src/helpers/report/report.ts",
+    "test:failed": "cucumber-js --config=config/cucumber.js -p rerun @rerun.txt"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.41.1",
+    "@types/node": "^20.9.0",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.0",
+    "eslint": "^8.54.0",
+    "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^10.8.0",
+    "date-fns": "^3.6.0",
+    "fs-extra": "^11.1.1",
+    "jsonpath": "^1.1.1",
+    "logform": "^2.6.0",
+    "multiple-cucumber-html-reporter": "^3.6.2",
+    "node-cache": "^5.1.2",
+    "playwright": "^1.41.1",
+    "winston": "^3.13.0"
+  }
+}
